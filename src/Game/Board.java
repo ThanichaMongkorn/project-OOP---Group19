@@ -12,10 +12,19 @@ public class Board implements BoardManager{
     private String[][] regions;
 
     public Board(int numRows, int numCols) {
-        if(numRows > 100 && numCols >100){
+        if(numRows < 100 && numCols < 100){
+            System.out.println("Build map size : "+numRows+","+numCols);
+
+            for(int i=1;i<=numRows;i++){
+                for(int j=1;j<=numCols;j++){
+                    System.out.println("("+i+","+j+")");
+                }
+                System.out.println("");
+        }
+        }else {
             System.out.println("can not build.");
         }
-        System.out.println("Build map size : "+numRows+","+numCols);
+
         regions = new String[numRows][numCols];
     }
 

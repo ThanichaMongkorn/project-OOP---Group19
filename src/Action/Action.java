@@ -1,4 +1,6 @@
 package Action;
+import Crew.Crew;
+import Player.Player;
 import Region.Region;
 
 import java.util.ArrayList;
@@ -21,18 +23,31 @@ public class Action implements ActionManager {
     }
 
     @Override
-    public void relocate() {
+    public void relocate(Crew crew, Region region, Player player) {
+        region.setRow(crew.getRowCrew());
+        region.setCol(crew.getColCrew());
+
+        int x = Math.abs(crew.getColCrew()-region.getCol()) + Math.abs(crew.getRowCrew()-region.getRow());
+        player.reduceBudget(5*x +10);
 
     }
 
     @Override
-    public void invest(int amount) {
-
+    public void invest(int amount, Region region, Player player) {
+        player.reduceBudget(amount);
+        region.reduceDeposit(amount);
     }
 
     @Override
-    public void collect(int amount) {
-
+    public void collect(Player player, Crew crew, Region region) {
+        int deposit = region.getDeposit();
+        if(player.getBudget()<=0){
+            done();
+        }else{
+            player.reduceBudget(1);
+            player.addBudget(deposit);
+            region.reduceDeposit(deposit);
+        }
     }
 
     @Override

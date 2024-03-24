@@ -8,7 +8,6 @@ public class Region implements RegionManager{
     private int col;
     private int deposit;
     private Player owner;//เก็บข้อมูลเจ้าของที่
-
     public Region(int row, int col, int deposit) {
         this.row = row;
         this.col = col;
@@ -55,22 +54,18 @@ public class Region implements RegionManager{
     public int getRow() {
         return row;
     }
-
     @Override
     public int getCol() {
         return col;
     }
-
     @Override
     public void setRow(int row) {
         this.row = row;
     }
-
     @Override
     public void setCol(int col) {
         this.col = col;
     }
-
     @Override
     public void setOwner(Player player) {
         this.owner = player;

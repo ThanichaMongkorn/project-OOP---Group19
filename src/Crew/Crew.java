@@ -2,23 +2,37 @@ package Crew;
 
 import Region.Region;
 
-public class Crew implements CrewManager{
+public class Crew {
+    private  int rowCrew;
+    private int colCrew;
 
-    @Override
-    public int nearby(String direction,Region region, Crew crew) {
-        int rowCrew = region.getRow();
-        int colCrew = region.getCol();
-
-        return 0;
+    public void Crew(int rowCrew, int colCrew){
+        this.colCrew = colCrew;
+        this.rowCrew = rowCrew;
     }
 
-    @Override
-    public int enermy(String direction, Region region, Crew crew) {
-
-        return 0;
+    public int getRowCrew(){
+        return this.rowCrew;
     }
 
-    @Override
+    public int getColCrew(){
+        return this.colCrew;
+    }
+
+//    public int nearby(String direction,Region region, Crew crew) {
+//        int rowCrew = region.getRow();
+//        int colCrew = region.getCol();
+//
+//        return 0;
+//    }
+//
+//    @Override
+//    public int enermy(String direction, Region region, Crew crew) {
+//
+//        return 0;
+//    }
+
+
     public int moveCrew(String direction , Region region) {
         if(direction.equals("move up")){
             int row = region.getRow();
@@ -27,6 +41,10 @@ public class Crew implements CrewManager{
 
             col -= 1;
             region.setCol(col);
+
+            int depositRegion = region.reduceDeposit(1);
+            System.out.println("Deposit : "+ depositRegion);
+
 
             System.out.println("newRow Col : ("+region.getRow() +","+ region.getCol()+")");
 
@@ -38,6 +56,9 @@ public class Crew implements CrewManager{
             col += 1;
             region.setCol(col);
 
+            int depositRegion = region.reduceDeposit(1);
+            System.out.println("Deposit : "+ depositRegion);
+
             System.out.println("newRow Col : ("+region.getRow() +","+ region.getCol()+")");
 
         } else if (direction.equals("move left")){
@@ -48,6 +69,9 @@ public class Crew implements CrewManager{
             row -= 1;
             region.setRow(row);
 
+            int depositRegion = region.reduceDeposit(1);
+            System.out.println("Deposit : "+ depositRegion);
+
             System.out.println("newRow Col : ("+region.getRow() +","+ region.getCol()+")");
 
         } else if (direction.equals("move right")) {
@@ -57,6 +81,9 @@ public class Crew implements CrewManager{
 
             row += 1;
             region.setRow(row);
+
+            int depositRegion = region.reduceDeposit(1);
+            System.out.println("Deposit : "+ depositRegion);
 
             System.out.println("newRow Col : ("+region.getRow() +","+ region.getCol()+")");
 
@@ -70,6 +97,9 @@ public class Crew implements CrewManager{
             region.setCol(col);
             region.setRow(row);
 
+            int depositRegion = region.reduceDeposit(1);
+            System.out.println("Deposit : "+ depositRegion);
+
             System.out.println("newRow Col : ("+region.getRow() +","+ region.getCol()+")");
 
         } else if (direction.equals("move upleft")) {
@@ -81,6 +111,9 @@ public class Crew implements CrewManager{
             row -=1;
             region.setCol(col);
             region.setRow(row);
+
+            int depositRegion = region.reduceDeposit(1);
+            System.out.println("Deposit : "+ depositRegion);
 
             System.out.println("newRow Col : ("+region.getRow() +","+ region.getCol()+")");
 
@@ -94,6 +127,9 @@ public class Crew implements CrewManager{
             region.setCol(col);
             region.setRow(row);
 
+            int depositRegion = region.reduceDeposit(1);
+            System.out.println("Deposit : "+ depositRegion);
+
             System.out.println("newRow Col : ("+region.getRow() +","+ region.getCol()+")");
 
         }else if (direction.equals("move downright")){
@@ -105,6 +141,9 @@ public class Crew implements CrewManager{
             row +=1;
             region.setCol(col);
             region.setRow(row);
+
+            int depositRegion = region.reduceDeposit(1);
+            System.out.println("Deposit : "+ depositRegion);
 
             System.out.println("newRow Col : ("+region.getRow() +","+ region.getCol()+")");
         }
