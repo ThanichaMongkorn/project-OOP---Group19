@@ -22,6 +22,7 @@ public class Action implements ActionManager {
         //methodนี้ใช้เมื่อผู้เล่นกด next turn
     }
 
+
     @Override
     public void relocate(Crew crew, Region region, Player player) {
         region.setRow(crew.getRowCrew());
