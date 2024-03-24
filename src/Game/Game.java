@@ -18,19 +18,13 @@ public class Game implements GameManager{
     public void startGame() {
 
     }
-
     @Override
     public void nextTurn() {
 
     }
 
     @Override
-    public void checkEndGame() {
-
-    }
-
-    @Override
-    public void displayGameBoard() {
+    public void isDead() {
 
     }
 

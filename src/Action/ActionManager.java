@@ -1,9 +1,9 @@
 package Action;
 
 public interface ActionManager {
-    void done();//จบturnเมื่อผู้เล่นคลิกnext turne
-    void relocate();//ย้ายเมืองหลวงจากที่เดิมเปลี่ยนที่ใหม่แล้วเมืองเดิมจะกลางเป็นเมืองธรรมดา
-    void move(Direction direction);//moveของcrew โดยผู้เล่นเป็นคนเลือกตำแหน่งของcrewได้ว่้าจะให้อยู่ตรงไหนและcrewจะสามารเลือก1ใน6ทิศ?ว่าจะสำรวจทิศไหน feelเหมือนสำรวจว่าศัตรูอยู่ตรงไหน
+    void done();
+    void relocate();
+    int[] move(String direction,int row, int col);
     void invest(int amount);//การลงทุนไปในเมืองของเราเพื่อเพิ่มมู,ค่าจากเดิมเมอืงราคา100เราลงไป i+1(i;ราคาเดิมเมืองหลวง) ก่อนinvestส่งcrewไปลงทุนแทนเรา input:ราคาของเมือง,ระยะห่างจากเมืองหลวงไปเมืองนั้น
     void collect(int amount);//เก็บเงินที่อยู่ในเมืองนั้นๆ
     void shoot(Direction direction, int expenditure);//โจมตีเมืองเมืองตรงข้าม หลังจากที่crewสำรวจนั้นพบว่ามีเมืองศัตรูอยู่ตรงไหนเราก็สามารถส่งcrewไปโจมตีได้เงื่อไขการโจมตี โดยการโจมตีแต่ละครั้งเงินของศัตรูจะลดลงไปทุกครั้งที่เราโจมตี

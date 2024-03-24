@@ -1,7 +1,11 @@
 package Player;
 
 public interface PlayerManager {
-    void addBudget(int money);
-    void reduceBudget(int money);
+    int addBudget(int money);
+    int reduceBudget(int money);
     int getBudget();
+    String getname();
+
+    String generateOneRegion(int row,int col);
+
 }

@@ -4,6 +4,7 @@ import Region.Region;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Player implements PlayerManager {
     private String name;
@@ -18,21 +19,40 @@ public class Player implements PlayerManager {
 
 
     @Override
-    public void addBudget(int money) {
+    public int addBudget(int money) {
         this.budget += money;
+        return budget;
     }
 
-    //methodลดเงินของผู้เล่น
     @Override
-    public void reduceBudget(int money) {
+    public int reduceBudget(int money) {
         this.budget -= money;
-//        if (this.budget < 0) {
-//            this.budget = 0;
-//        }
+        if (this.budget < 0) {
+            this.budget = 0;
+        }
+        return budget;
     }
 
     @Override
     public int getBudget() {
         return budget;
     }
+
+    @Override
+    public String getname() {
+        return name;
+    }
+
+    @Override
+    public String generateOneRegion(int row, int col) {
+        long seed = System.currentTimeMillis();
+        Random random = new Random(seed);
+
+        int startRow = random.nextInt(row + 1);
+        int startCol = random.nextInt(col + 1);
+
+        return "("+ startRow+ "," +startCol +")";
+    }
+
+
 }
